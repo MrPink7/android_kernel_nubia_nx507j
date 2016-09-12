@@ -1,4 +1,4 @@
-/* Copyright (c) 2008-2014, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2008-2014,2016 The Linux Foundation. All rights reserved.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -358,7 +358,6 @@ kgsl_mem_entry_untrack_gpuaddr(struct kgsl_process_private *process,
 		rb_erase(&entry->node, &entry->priv->mem_rb);
 	}
 }
-
 
 static void kgsl_mem_entry_commit_mem_list(struct kgsl_process_private *process,
 				struct kgsl_mem_entry *entry)

@@ -743,7 +743,7 @@ static void goodix_ts_work_func(struct work_struct *work)
         ret = gtp_i2c_read(i2c_connect_client, doze_buf, 3);
         GTP_DEBUG("0x814B = 0x%02X", doze_buf[2]);
         if (ret > 0)
-        {     
+        {
 #if 0
             if ((doze_buf[2] == 'a') || (doze_buf[2] == 'b') || (doze_buf[2] == 'c') ||
                 (doze_buf[2] == 'd') || (doze_buf[2] == 'e') || (doze_buf[2] == 'g') || 
@@ -801,17 +801,16 @@ static void goodix_ts_work_func(struct work_struct *work)
 					doze_status = DOZE_WAKEUP;
 #if 1			//add by luochangyang 2014/04/30
 					input_report_key(ts->input_dev, KEY_WAKEUP, 1);
-				input_sync(ts->input_dev);
-
+					input_sync(ts->input_dev);
 					input_report_key(ts->input_dev, KEY_WAKEUP, 0);
-				input_sync(ts->input_dev);
+					input_sync(ts->input_dev);
 #else
-                input_report_key(ts->input_dev, KEY_WAKEUP, 1);
-                input_sync(ts->input_dev);
-                input_report_key(ts->input_dev, KEY_WAKEUP, 0);
-                input_sync(ts->input_dev);
+                			input_report_key(ts->input_dev, KEY_WAKEUP, 1);
+                			input_sync(ts->input_dev);
+                			input_report_key(ts->input_dev, KEY_WAKEUP, 0);
+                			input_sync(ts->input_dev);
 #endif
-            }
+            			}
             }
 
                 // clear 0x814B
