@@ -135,7 +135,7 @@
 		qcom,low-soc-calculate-soc-ms = <5000>;
 		qcom,calculate-soc-ms = <20000>;
 		qcom,chg-term-ua = <100000>;
-		qcom,batt-type = <3>;  //ZTEMT_CHARGE  0 --> 3 BATT_OEM type
+		qcom,batt-type = <3>;  //ZTEMT_CHARGE  0 --> 3 OEM battery type
 		qcom,low-voltage-threshold = <3420000>;
 		qcom,tm-temp-margin = <5000>;
 		qcom,low-ocv-correction-limit-uv = <100>;
@@ -220,11 +220,11 @@
 		qcom,chg-iadc = <&pm8941_iadc>;
 		qcom,chg-adc_tm = <&pm8941_adc_tm>;
 		qcom,ibat-calibration-enabled;
-
         //ZTEMT_CHARGE add 
 		qcom,batt-hot-percentage = <25>;
 		qcom,batt-cold-percentage = <80>;
 		//ZTEMT end
+
 		pm8941_chg_chgr: qcom,chgr@1000 {
 			status = "disabled";
 			reg = <0x1000 0x100>;

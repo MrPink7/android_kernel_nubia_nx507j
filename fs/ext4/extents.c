@@ -1083,7 +1083,7 @@ static int ext4_ext_grow_indepth(handle_t *handle, struct inode *inode,
 	if (newblock == 0)
 		return err;
 
-	bh = sb_getblk_gfp(inode->i_sb, newblock, __GFP_MOVABLE | GFP_NOFS);
+	bh = sb_getblk(inode->i_sb, newblock);
 	if (!bh) {
 		err = -EIO;
 		ext4_std_error(inode->i_sb, err);
