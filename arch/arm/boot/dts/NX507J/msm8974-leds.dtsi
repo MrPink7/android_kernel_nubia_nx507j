@@ -23,7 +23,7 @@
 			qcom,pwm-us = <1000>;
 			qcom,start-idx = <0>;
 			qcom,idx-len = <50>;
-			qcom,duty-pcts= [00 02 04 06 08 0a 0c 0e 10 12 
+			qcom,duty-pcts= [00 02 04 06 08 0a 0c 0e 10 12
 			                 14 16 18 1a 1c 1e 20 22 24 26 
 			                 28 2a 2c 2e 30 32 34 36 38 3a 
 			                 3c 3e 40 42 44 46 48 4a 4c 4e 
@@ -57,7 +57,7 @@
 			qcom,use-blink= <1>;
 			linux,default-trigger = "none";
 		};
-				
+
 		qcom,rgb_2 {
 			label = "rgb";
 			linux,name = "led:rgb_blue";
@@ -78,8 +78,8 @@
 			qcom,id = <5>;
 			qcom,use-blink= <1>;
 			linux,default-trigger = "none";
-		};		
-  };				
+		};
+	};
 
 	qcom,leds@d100 {
 		status = "disabled";

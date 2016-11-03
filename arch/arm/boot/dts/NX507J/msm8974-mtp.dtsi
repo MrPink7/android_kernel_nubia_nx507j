@@ -15,7 +15,8 @@
 
 / {
 	aliases {
-		#serial0 = &blsp1_uart1;
+		serial0 = &blsp1_uart0;
+		serial1 = &blsp1_uart1;
 	};
 };
 
@@ -27,7 +28,6 @@
 	qcom,mdss_dsi@fd922800 {
 		qcom,dsi-pref-prim-pan = <&dsi_sp_1080_5p0_vid>;
 	};
-
 	qcom,mdss_dsi@fd922e00 {
 		status = "no";
 	};
@@ -147,7 +147,6 @@
 			};
 		};
 	};
-
 	i2c@f9928000 {
 		tps65132@3e {
 			compatible = "tps,tps65132_i2c_adapter";
@@ -155,18 +154,6 @@
 			interrupt-parent = <&msmgpio>;
 			vdd_ana-supply = <&pm8941_lvs1>;
 			vcc_i2c-supply = <&pm8941_lvs1>;
-		};
-		broadcom_bcm2079x_nfc@0x77 {
-			compatible = "broadcom,bcm2079x_nfc";
-			reg = <0x77>;
-			//vdd_swp-supply = <&pm8941_l9>;
-			interrupt-parent = <&msmgpio>;
-			//interrupts = <59 0x1>;
-			interrupts = <59 0x1>;
-			broadcom,clk-gpio = <&pm8941_gpios 32 0x00>;
-            broadcom,en-gpio = <&msmgpio 85 0x00>;
-			broadcom,wake-gpio = <&msmgpio 13 0x00>;
-			broadcom,irq-gpio = <&msmgpio 59 0x01>;
 		};
 	};
 	gen-vkeys {
@@ -208,7 +195,7 @@
 	                compatible = "ams,ams-sensor";
 					interrupt-parent = <&msmgpio>;
 	                ams,irq-gpio = <&msmgpio 9 0x00>;
-	                ams,light-percent = <100>;
+	                ams,light-percent = <180>;
 					vdd-supply = <&pm8941_l18>;
 					vio-supply = <&pm8941_lvs1>;
 
@@ -255,7 +242,8 @@
 			gpio-key,wakeup;
 			debounce-interval = <15>;
 		};
-/*add by yfliu, for volume down key*/
+
+		/* for volume down key */
 		vol_down {
 			label = "volume_down";
 			gpios = <&pm8941_gpios 2 0x1>;
@@ -306,8 +294,6 @@
 			"DMIC6", "MIC BIAS4 External",
 			"MIC BIAS4 External", "Digital Mic6",
 			"Lineout_1 amp", "LINEOUT1";
-
-
 		qcom,ext-lineout1-amp-gpio = <&msmgpio 16 0>;
 		qcom,mbhc-switch-enable-gpio = <&msmgpio 96 0>;
 		qcom,cdc-micbias2-headset-only;
@@ -496,7 +482,8 @@
 
 &pm8941_chg {
 	status = "ok";
-
+	//ZTEMT_CHARGE modify by swang,enable the pmic charger
+    //qcom,charging-disabled;
 	qcom,battery-data = <&mtp_batterydata>;
 
 	qcom,chgr@1000 {

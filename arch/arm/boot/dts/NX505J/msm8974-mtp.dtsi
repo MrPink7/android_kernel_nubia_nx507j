@@ -217,7 +217,7 @@
 	                status = "okay";
 	                reg = <0x39>;
 	                compatible = "ams,ams-sensor";
-					interrupt-parent = <&msmgpio>;
+	                interrupt-parent = <&msmgpio>;
 	                ams,irq-gpio = <&msmgpio 9 0x00>;
 	                ams,light-percent = <100>;
 
@@ -282,7 +282,8 @@
 			gpio-key,wakeup;
 			debounce-interval = <15>;
 		};
-/*add by yfliu, for volume down key*/
+
+		/* for volume down key */
 		vol_down {
 			label = "volume_down";
 			gpios = <&pm8941_gpios 2 0x1>;
